@@ -1,26 +1,31 @@
 const net = require('net');
 
+let idCounter = 0;
 const clients = [];
 
 const broadcast = (message, sender) => {
   clients.forEach((client) => {
-    if (client === sender) return;
-    client.write(message);
+    if (client.id === sender.id) return;
+    client.socket.write(message);
   });
 };
 
 const server = net.createServer((socket) => {
   console.log('New client connected');
-  clients.push(socket);
+  const client = {
+    id: idCounter++,
+    socket: socket,
+  };
+  clients.push(client);
   socket.write('Welcome to the chat!\n');
 
   socket.on('data', (data) => {
-    broadcast(data, socket);
+    broadcast(data, client);
   });
 
   socket.on('end', () => {
     console.log('Client disconnected');
-    clients.splice(clients.indexOf(socket), 1);
+    clients.splice(clients.indexOf(client), 1);
     broadcast('A client has left the chat.\n', socket);
   });
 
