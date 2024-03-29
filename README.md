@@ -1,3 +1,5 @@
+<img src="images/logo.webp" alt="Logo" width="100"/>
+
 # Simple TCP/IP Socket Chat
 
 This project was created to explore TCP/IP Sockets. It allows users to communicate through the terminal with others on the same local network.
@@ -19,6 +21,11 @@ This project was created to explore TCP/IP Sockets. It allows users to communica
 2. In another terminal window, execute `nc localhost 3000` to join the chat. Repeat this step for each participant.
 3. You are now ready to chat!
 
-## License
+### TODO
+
+- [ ] Implement tests
+- [ ] In the future, consider adding a database to store chat history
+
+### License
 
 This project is licensed under the MIT License.
