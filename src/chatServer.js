@@ -44,7 +44,7 @@ const createServer = () => {
     socket.on('end', () => {
       console.log('Client disconnected');
       clients.splice(clients.indexOf(client), 1);
-      broadcast('A client has left the chat.\n', socket);
+      broadcast(`${client.name} has left the chat.\n`, socket);
     });
 
     socket.on('error', (err) => {
