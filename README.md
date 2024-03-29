@@ -21,6 +21,9 @@ This project was created to explore TCP/IP Sockets. It allows users to communica
 2. In another terminal window, execute `nc localhost 3000` to join the chat. Repeat this step for each participant.
 3. You are now ready to chat!
 
+![Example](images/example.png)
+![Single Chat view](images/example2.png)
+
 ### TODO
 
 - [ ] Implement tests
